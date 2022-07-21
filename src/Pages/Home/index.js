@@ -1,6 +1,7 @@
 import Header from "../../components/Header";
 import Balance from "../../components/Balance";
 import Movements from "../../components/Movements";
+import Actions from "../../components/Actions";
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 
@@ -38,12 +39,15 @@ export default function Home() {
             <Balance saldo="8.500,00" gastos="-567,00" />
             <Text style={styles.title}>Últimas movimentações</Text>
 
+            <Actions/>
             <FlatList style={styles.list}
                 data={list}
                 keyExtractor={(item) => String(item.id)}
                 showsHorizontalScrollIndicator={false}
                 renderItem={({ item }) => <Movements data={item} />} />
         </View>
+
+       
     );
 }
 
@@ -57,9 +61,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: 'bold',
-        marginLeft: 14,
-        marginRight: 14,
-        marginTop: 14,
+        margin:14,
     },
 
     list: {
